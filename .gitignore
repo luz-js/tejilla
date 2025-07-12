@@ -18,7 +18,7 @@
 
 # misc
 .DS_Store
-*.pem
+# *.pem # Keep if you have certs not managed by Vercel/hosting
 
 # debug
 npm-debug.log*
@@ -27,10 +27,63 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env # Add .env itself if you use it for local uncommitted vars
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# next-env.d.ts # Usually not ignored, part of Next.js setup
+
+# Backend server specific
+/server/node_modules
+/server/dist
+/server/.env*
+!/server/.env.example # Useful to commit an example env file
+
+# IDE / Editor specific
+.idea/
+.vscode/ # Add if you use VSCode settings per project and don't want to commit them
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+cache/
+.eslintcache
+
+# OS generated files
+ehthumbs.db
+Thumbs.db
+._*
+
+# Ignored existing files/folders from initial project scan that are being replaced or not used:
+# These are based on the initial `ls` output and might need adjustment.
+# If you are replacing the functionality of these folders/files with the new backend,
+# you might want to remove them from the project entirely rather than just ignoring them.
+
+# Current API routes if being replaced by the new server
+/src/app/api/songs/
+/src/app/api/ping/
+/src/app/api/hello/
+
+# Current models if being replaced by TypeORM entities
+/src/models/
+# /src/app/utils/mongoose.js # Covered by /src/models/ if that's where it is
+
+# Specific example pages/components if no longer needed
+# /src/app/songs/new/page.jsx # Example, uncomment if removing
+# /src/app/songs/page.jsx # Example, uncomment if removing
+# /src/app/cronogramas/ # Example, uncomment if removing
+# /src/components/Meeting.js # Example, uncomment if removing
+# /src/components/SongTable.js # Example, uncomment if removing
+# /src/app/utils/meetings.js # Example, uncomment if removing
